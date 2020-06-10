@@ -1,0 +1,14 @@
+[Unit]
+Description=oasys UI backend
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=oasys
+WorkingDirectory=/opt/oasys/MagicMirror
+ExecStart=/usr/bin/node serveronly
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Encender Pantalla
+After=network.target arduino-uart.service
+StartLimitIntervalSec=0
+[Service]
+Type=oneshot
+RemainAfterExit=true
+User=oasys
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/local/bin/display-on.sh
+ExecStop=/usr/local/bin/display-off.sh
+
+[Install]
+WantedBy=multi-user.target
